@@ -1,4 +1,4 @@
-package br.com.nfdev.glammanager_api.controllers;
+package br.com.nfdev.glammanager_api.web.controllers;
 
 import java.util.List;
 

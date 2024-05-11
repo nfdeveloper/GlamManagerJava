@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.nfdev.glammanager_api.entities.Categoria;
+import br.com.nfdev.glammanager_api.exception.EntityNotFoundException;
 import br.com.nfdev.glammanager_api.repositories.CategoriaRepository;
-import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class CategoriaService {
@@ -25,7 +25,7 @@ public class CategoriaService {
     @Transactional(readOnly = true)
     public Categoria getById(long id){
         return categoriaRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException());
+                .orElseThrow(() -> new EntityNotFoundException(String.format("Usuário de id=%s não encontrado", id)));
     }
 
     @Transactional
